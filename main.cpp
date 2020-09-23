@@ -2,6 +2,7 @@
 #include <ctime>
 #include <cmath>
 #include <vector>
+#include <string>
 
 int main() {
     //#1
@@ -90,11 +91,26 @@ int main() {
     std::cout << "Enter l1 and l2: ";
     std::cin >> l1 >> l2;
     std::cout << input.substr(l1 - 1, l2 - l1 + 1) << std::endl;
+    std::string str = "Can you can a can as a canner can can a can?";
     std::cout << "Enter a string: ";
     std::string input2;
     std::cin >> input2;
     char first = std::toupper(input2.front());
     std::string second = input2.substr(1, input2.length());
-    std::cout << first << second << " you " << input2 << " a " << input2 << " as a " << input2 << "ner "  << input2 << " "  << input2 << " a " << input2 << "?" << std::endl;
-    return 0;
+    std::string output = first + second;
+    int it = str.find("Can", 0);
+    while (it != std::string::npos)
+    {
+        str.replace(it, 3, output);
+        it = str.find("Can", it);
+
+    }
+    int it2 = str.find("can", 0);
+    while (it2 != std::string::npos)
+    {
+        str.replace(it2, 3, input2);
+        it2 = str.find("can", it2);
+
+    }
+    std::cout << str;
 }
